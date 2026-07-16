@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Festive — 2026 Distributor Price List</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root{
+    --pine:#1B4332;
+    --pine-deep:#0F2E22;
+    --ivory:#FBF6EA;
+    --gold:#C9962E;
+    --gold-bright:#E4B650;
+    --berry:#A13D3D;
+    --ink:#241F18;
+    --paper:#FFFDF8;
+    --line: rgba(27,67,50,0.14);
+    --shadow: 0 12px 30px -14px rgba(15,46,34,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    background: linear-gradient(160deg, var(--pine) 0%, var(--pine-deep) 100%);
+    color:var(--ivory);
+    padding:48px 40px 34px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:10px;
+    background-image: repeating-linear-gradient(-55deg, var(--gold) 0 14px, transparent 14px 28px);
+    opacity:.9;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:clamp(30px,4vw,46px);
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  header p.sub{
+    margin:0 0 18px;
+    max-width:660px;
+    color:rgba(251,246,234,0.78);
+    font-size:15px;
+    line-height:1.55;
+  }
+  .tier-key{
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .tier-key span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:.04em;
+    background:rgba(251,246,234,0.1);
+    border:1px solid rgba(251,246,234,0.2);
+    padding:5px 11px; border-radius:7px;
+    color:var(--ivory);
+  }
+  .tier-key span b{color:var(--gold-bright);}
+  .header-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    flex-wrap:wrap;
+  }
+  .gellings-logo{
+    background:var(--ivory);
+    padding:10px 16px;
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    flex-shrink:0;
+  }
+  .gellings-logo img{
+    display:block;
+    height:56px;
+    width:auto;
+  }
+
+  /* ---------- toolbar ---------- */
+  .toolbar{
+    display:flex; flex-wrap:wrap; gap:10px 12px;
+    align-items:center;
+    padding:20px 40px;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:20;
+  }
+  .search-wrap{
+    position:relative; flex:1 1 260px; max-width:360px;
+  }
+  #search{
+    width:100%;
+    padding:11px 14px 11px 36px;
+    border-radius:9px;
+    border:1px solid var(--line);
+    background:var(--ivory);
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+  }
+  #search:focus{outline:2px solid var(--gold); outline-offset:1px;}
+  .search-wrap svg{position:absolute; left:11px; top:50%; transform:translateY(-50%); opacity:.5;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px; font-weight:600;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--ivory);
+    color:var(--pine);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all .15s ease;
+  }
+  .chip:hover{border-color:var(--pine);}
+  .chip.active{
+    background:var(--pine); color:var(--ivory); border-color:var(--pine);
+  }
+  .tier-select{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:600;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--ivory);
+    color:var(--pine);
+  }
+  .result-count{
+    margin-left:auto;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink); opacity:.55;
+    white-space:nowrap;
+  }
+
+  /* ---------- grid ---------- */
+  main{padding:30px 40px 80px;}
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-size:22px; font-weight:600;
+    margin:34px 0 16px;
+    padding-top:8px;
+    border-top:1px solid var(--line);
+    display:flex; align-items:baseline; gap:10px;
+  }
+  .section-title:first-child{border-top:none; margin-top:0;}
+  .section-title span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:500; color:var(--gold);
+    background:rgba(201,150,46,0.12);
+    padding:3px 9px; border-radius:6px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:14px;
+  }
+
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 16px 14px;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    display:flex; flex-direction:column; gap:10px;
+    position:relative;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    border-color:var(--gold);
+  }
+  .card:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .card .icon-wrap{
+    width:100%; height:78px;
+    display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(circle at 30% 20%, rgba(27,67,50,0.05), transparent 70%);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .badge-new{
+    position:absolute; top:10px; right:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px; font-weight:600; letter-spacing:.06em;
+    color:var(--berry); background:rgba(161,61,61,0.1);
+    padding:2px 7px; border-radius:5px;
+  }
+  .card .code{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px; color:var(--ink); opacity:.5;
+  }
+  .card .desc{
+    font-family:'Inter',sans-serif;
+    font-size:13.5px; font-weight:600; line-height:1.3;
+    color:var(--ink);
+    min-height:34px;
+  }
+  .card .price-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-top:auto;
+    border-top:1px dashed var(--line);
+    padding-top:9px;
+  }
+  .card .case-price{font-family:'Fraunces',serif; font-weight:600; font-size:17px; color:var(--pine);}
+  .card .unit-price{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink); opacity:.55;}
+
+  .no-results{
+    padding:60px 20px; text-align:center; color:var(--ink); opacity:.55;
+    font-family:'Inter',sans-serif; font-size:14px;
+  }
+
+  /* ---------- modal ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(15,46,34,0.55);
+    backdrop-filter:blur(2px);
+    display:none; align-items:center; justify-content:center;
+    padding:24px; z-index:100;
+  }
+  .overlay.open{display:flex;}
+  .modal{
+    background:var(--paper);
+    border-radius:16px;
+    max-width:520px; width:100%;
+    max-height:88vh; overflow-y:auto;
+    box-shadow:0 30px 60px -20px rgba(15,46,34,0.5);
+    position:relative;
+  }
+  .modal-top{
+    background:linear-gradient(160deg, var(--pine) 0%, var(--pine-deep) 100%);
+    color:var(--ivory);
+    padding:26px 26px 60px;
+    position:relative;
+  }
+  .modal-top .range-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--gold-bright); margin-bottom:8px; display:block;
+  }
+  .modal-top h2{
+    font-family:'Fraunces',serif; font-weight:700; font-size:23px; margin:0 0 6px; line-height:1.25;
+  }
+  .modal-top .code-line{font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(251,246,234,0.7);}
+  .close-btn{
+    position:absolute; top:18px; right:18px;
+    background:rgba(251,246,234,0.14); border:none; color:var(--ivory);
+    width:32px; height:32px; border-radius:50%; cursor:pointer;
+    font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center;
+  }
+  .close-btn:hover{background:rgba(251,246,234,0.26);}
+  .icon-float{
+    position:absolute; bottom:-34px; right:26px;
+    width:76px; height:76px; background:var(--paper);
+    border-radius:16px; box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .modal-body{padding:48px 26px 30px;}
+  .spec-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px 16px;
+    margin-bottom:20px;
+  }
+  .spec{
+    background:var(--ivory); border:1px solid var(--line); border-radius:10px;
+    padding:11px 13px;
+  }
+  .spec .label{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--pine); opacity:.65; margin-bottom:3px;
+  }
+  .spec .value{font-family:'Inter',sans-serif; font-size:15px; font-weight:600; color:var(--ink);}
+  .spec.highlight{background:rgba(201,150,46,0.12); border-color:rgba(201,150,46,0.35);}
+  .price-tiers{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+    margin-bottom:20px;
+  }
+  .price-tier{
+    background:var(--ivory); border:1px solid var(--line); border-radius:10px;
+    padding:10px 8px; text-align:center;
+  }
+  .price-tier.current{background:rgba(201,150,46,0.14); border-color:var(--gold);}
+  .price-tier .label{
+    font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--pine); opacity:.65; margin-bottom:4px;
+  }
+  .price-tier .value{font-family:'Fraunces',serif; font-weight:600; font-size:16px; color:var(--ink);}
+  .eco-line{
+    display:flex; gap:8px; align-items:center;
+    font-size:13px; color:var(--pine); background:rgba(27,67,50,0.07);
+    padding:10px 13px; border-radius:10px; margin-bottom:14px;
+  }
+  .new-flag{
+    display:inline-block; margin-left:8px;
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600;
+    color:var(--berry); background:rgba(161,61,61,0.1);
+    padding:2px 8px; border-radius:5px; vertical-align:middle;
+  }
+  .modal-footer-note{
+    font-size:12px; color:var(--ink); opacity:.5; line-height:1.5; margin-top:6px;
+  }
+
+  @media (max-width:640px){
+    header, .toolbar, main{padding-left:18px; padding-right:18px;}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+    .spec-grid{grid-template-columns:1fr 1fr;}
+    .price-tiers{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div>
+      <p class="eyebrow">Single Use Paper Co · Hotel Festive</p>
+      <h1>2026 Distributor Price List</h1>
+      <p class="sub">Christmas crackers, napkins, party accessories &amp; decorations — order early to lock in the lowest price; case prices step up as the season progresses.</p>
+      <div class="tier-key">
+        <span><b>Early</b> — order before Oct</span>
+        <span><b>Oct</b> — October pricing</span>
+        <span><b>Nov</b> — November pricing</span>
+        <span><b>Dec</b> — December pricing</span>
+      </div>
+    </div>
+    <div class="gellings-logo">
+      <img src="images/gellings-logo.jpg" alt="Gellings — The Happy Hygiene &amp; Hospitality People">
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="search" type="text" placeholder="Search by name or code…" autocomplete="off">
+  </div>
+  <div class="chip-row" id="chips"></div>
+  <select class="tier-select" id="tierSelect">
+    <option value="early">Show: Early price</option>
+    <option value="oct">Show: Oct price</option>
+    <option value="nov">Show: Nov price</option>
+    <option value="dec">Show: Dec price</option>
+  </select>
+  <div class="result-count" id="resultCount"></div>
+</div>
+
+<main id="main"></main>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const products = [
+{range:"8\" Cracker",eco:"100% Recycled Board",code:"SUJ080001",desc:"8\" Childrens Mixed Box Cracker (NO SNAP) with Festive Fun Puzzles",caseQty:100,palletQty:60,cat:"Crackers",size:8,img:"images/SUJ080001.jpg",early:21.68,oct:22.75,nov:23.56,dec:24.38},
+{range:"9\" Cracker",eco:"100% Recycled Board",code:"SUJ090002",desc:"9\" Splendid Star Red/Green Mixed Box Cracker with Festive Fun Puzzles",caseQty:100,palletQty:50,cat:"Crackers",size:9,img:"images/SUJ090002.jpg",early:22.61,oct:23.73,nov:24.58,dec:25.42},
+{range:"9\" Cracker",eco:"100% Recycled Board",code:"SUJ090003",desc:"9\" Festive Joy White Mixed Box Cracker with Festive Fun Puzzles",caseQty:100,palletQty:50,cat:"Crackers",size:9,img:"images/SUJ090003.jpg",early:23.01,oct:24.15,nov:25.01,dec:25.88},
+{range:"9\" Cracker",isNew:true,eco:"100% Recycled Board",code:"SUDP09001",desc:"Red & Green Snowflake Mixed Box with Christmas Stickers",caseQty:100,palletQty:50,cat:"Crackers",size:9,img:"images/SUDP09001.jpg",early:23.95,oct:25.13,nov:26.03,dec:26.92},
+{range:"10\" Crackers",eco:"100% Recycled Board",code:"SUJ100005",desc:"10\" Seasonal Script Red/White Mixed Box Cracker with Christmas Quiz",caseQty:100,palletQty:45,cat:"Crackers",size:10,img:"images/SUJ100005.jpg",early:30.02,oct:31.5,nov:32.62,dec:33.75},
+{range:"10\" Crackers",isNew:true,eco:"100% Recycled Board",code:"SUJ100007",desc:"10\" Classic Wreath Mixed Box Cracker",caseQty:100,palletQty:45,cat:"Crackers",size:10,img:"images/SUJ100007.jpg",early:31.15,oct:32.69,nov:33.86,dec:35.03},
+{range:"10\" Crackers",eco:"100% Recycled Board",code:"SUJ100006",desc:"10\" Snowflake Supreme Gold/White Mixed Box Cracker with Christmas Quiz",caseQty:100,palletQty:45,cat:"Crackers",size:10,img:"images/SUJ100006.jpg",early:31.15,oct:32.69,nov:33.86,dec:35.03},
+{range:"10\" Crackers TCT",eco:"Kraft 100% Recycled Board",code:"SUJ100002",desc:"10\" Holly Jolly Kraft TCT Mixed Box Cracker with Christmas Quiz",caseQty:100,palletQty:45,cat:"Crackers",size:10,img:"images/SUJ100002.jpg",early:35.88,oct:37.66,nov:39.0,dec:40.35},
+{range:"10\" Crackers",isNew:true,eco:"Kraft 100% Recycled Board",code:"SUDP100001",desc:"10\" Red & Green Star Eco Kraft Mixed Box Cracker with Christmas Stickers",caseQty:100,palletQty:45,cat:"Crackers",size:10,img:"images/SUDP100001.jpg",early:34.55,oct:36.26,nov:37.55,dec:38.85},
+{range:"11\" Crackers",eco:"100% Recycled Board",code:"SUJ110009",desc:"11\" Christmas Joy Mixed Box Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110009.jpg",early:32.42,oct:34.02,nov:35.23,dec:36.45},
+{range:"11\" Crackers",eco:"100% Recycled Board",code:"SUJ110007",desc:"11\" Robin Red/Green Mixed Box Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110007.jpg",early:33.15,oct:34.79,nov:36.03,dec:37.28},
+{range:"11\" Crackers",isNew:true,eco:"100% Recycled Board",code:"SUJ110013",desc:"11\" Knitted Traditions Cracker",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110013.jpg",early:36.69,oct:38.5,nov:39.88,dec:41.25},
+{range:"11\" Crackers TCT",eco:"Kraft 100% Recycled Board",code:"SUJ110002",desc:"11\" A Very Merry Christmas TCT Kraft Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110002.jpg",early:45.29,oct:47.53,nov:49.23,dec:50.93},
+{range:"11\" Crackers",isNew:true,eco:"Kraft 100% Recycled Board",code:"SUJ110011",desc:"11\" Festive Forest Kraft TCT Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110011.jpg",early:45.76,oct:48.02,nov:49.73,dec:51.45},
+{range:"11\" Crackers",eco:"High Shine Foil Board",code:"SUJ110003",desc:"11\" Snowflake SILVER Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110003.jpg",early:38.62,oct:40.53,nov:41.98,dec:43.42},
+{range:"11\" Crackers",eco:"High Shine Foil Board",code:"SUJ110004",desc:"11\" Snowflake GOLD Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110004.jpg",early:38.62,oct:40.53,nov:41.98,dec:43.42},
+{range:"11\" Crackers",eco:"High Shine Foil Board",code:"SUJ110005",desc:"11\" Snowflake RED Cracker with Christmas Quiz",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110005.jpg",early:38.62,oct:40.53,nov:41.98,dec:43.42},
+{range:"11\" Crackers",isNew:true,eco:"High Shine Foil Board",code:"SUJ110012",desc:"11\" Sparkle Tree Mixed Box Cracker",caseQty:100,palletQty:40,cat:"Crackers",size:11,img:"images/SUJ110012.jpg",early:38.62,oct:40.53,nov:41.98,dec:43.42},
+{range:"12\" Crackers",eco:"100% Recycled Board",code:"SUJ120011",desc:"12\" Festive Forest Mixed Box Cracker with Christmas Quiz",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120011.jpg",early:23.81,oct:24.99,nov:25.88,dec:26.78},
+{range:"12\" Crackers",isNew:true,eco:"100% Recycled Board",code:"SUDP120001",desc:"12\" Starburst Gold & Silver Mixed Box Cracker with Useful Grade 1 Content",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUDP120001.jpg",early:30.28,oct:31.78,nov:32.91,dec:34.05},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120013",desc:"12\" Silver Christmas Diamond Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120013.jpg",early:31.35,oct:32.9,nov:34.08,dec:35.25},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120012",desc:"12\" Gold Christmas Diamond Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120012.jpg",early:31.35,oct:32.9,nov:34.08,dec:35.25},
+{range:"12\" Kraft Crackers TCT",eco:"Kraft 100% Recycled Board",code:"SUJ120008",desc:"12\" Festive Village Kraft TCT Cracker with Christmas Quiz & Snowflake Tree Hangers",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120008.jpg",early:33.62,oct:35.28,nov:36.54,dec:37.8},
+{range:"12\" Kraft Crackers",isNew:true,eco:"Kraft 100% Recycled Board",code:"SUJ120014",desc:"12\" Festive Forest Mixed Box TCT Cracker with Christmas Quiz & Snowflake Hangers",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120014.jpg",early:33.62,oct:35.28,nov:36.54,dec:37.8},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120005",desc:"12\" Snowflake BLUE Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120005.jpg",early:34.55,oct:36.26,nov:37.55,dec:38.85},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120006",desc:"12\" Twist Royale GOLD Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120006.jpg",early:38.42,oct:40.32,nov:41.76,dec:43.2},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120007",desc:"12\" Twist Royale SILVER Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120007.jpg",early:38.42,oct:40.32,nov:41.76,dec:43.2},
+{range:"12\" Crackers",eco:"High Shine Foil Board",code:"SUJ120009",desc:"12\" Twist Royale RED Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ120009.jpg",early:39.35,oct:41.3,nov:42.77,dec:44.25},
+{range:"12\" Wide Body Crackers",eco:"High Shine Foil Board",code:"SUJ125005",desc:"12\" Sparkly Black Duni Cracker with Christmas Quiz & Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ125005.jpg",early:46.02,oct:48.3,nov:50.02,dec:51.75},
+{range:"12\" Wide Body Crackers",eco:"Pearlized Board",code:"SUJ125003",desc:"12\" Snowflake Sparkle GOLD W/B Mixed Box Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ125003.jpg",early:42.62,oct:44.73,nov:46.33,dec:47.92},
+{range:"12\" Wide Body Crackers",eco:"Pearlized Board",code:"SUJ125004",desc:"12\" Snowflake Sparkle SILVER W/B Mixed Box Cracker with Useful Grade 2",caseQty:50,palletQty:42,cat:"Crackers",size:12,img:"images/SUJ125004.jpg",early:42.62,oct:44.73,nov:46.33,dec:47.92},
+{range:"14\" Crackers",eco:"High Shine Foil Board",code:"SUJ140005",desc:"14\" Elegant Foliage GOLD Foil Board Cracker with Useful Grade 2",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140005.jpg",early:30.02,oct:31.5,nov:32.62,dec:33.75},
+{range:"14\" Crackers",isNew:true,eco:"High Shine Foil Board",code:"SUDP140001",desc:"14\" Gold Damask Cracker with Useful Metal Gifts (50 per case)",caseQty:50,palletQty:63,cat:"Crackers",size:14,img:"images/SUDP140001.jpg",early:66.7,oct:70.0,nov:72.5,dec:75.0},
+{range:"14\" Crackers",eco:"Foil Board Cracker",code:"SUJ140014",desc:"14\" Winter Crystal Cracker Gold / Cream with Useful Grade 2",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140014.jpg",early:35.95,oct:37.73,nov:39.08,dec:40.42},
+{range:"14\" Crackers",eco:"Foil Board Cracker",code:"SUJ140015",desc:"14\" Winter Crystal Cracker Silver / White with Useful Grade 2",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140015.jpg",early:35.95,oct:37.73,nov:39.08,dec:40.42},
+{range:"14\" Crackers TCT",eco:"Kraft 100% Recycled Board",code:"SUJ140006",desc:"14\" Winter Wonderland TCT Kraft Cracker with Christmas Quiz & Luxury Wooden Gifts",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140006.jpg",early:40.69,oct:42.7,nov:44.22,dec:45.75},
+{range:"14\" Supreme Crackers",eco:"High Shine Foil Board",code:"SUJ140013",desc:"14\" Diamond BLACK/SILVER Mixed Box Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140013.jpg",early:42.69,oct:44.8,nov:46.4,dec:48.0},
+{range:"14\" Supreme Crackers",eco:"High Shine Foil Board",code:"SUJ140008",desc:"14\" Diamond PURPLE/SILVER Mixed Box Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140008.jpg",early:42.69,oct:44.8,nov:46.4,dec:48.0},
+{range:"14\" Supreme Crackers",isNew:true,eco:"High Shine Foil Board",code:"SUJ140016",desc:"14\" Diamond Red Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140016.jpg",early:42.69,oct:44.8,nov:46.4,dec:48.0},
+{range:"14\" Supreme Crackers",eco:"High Shine Foil Board",code:"SUJ140010",desc:"14\" Diamond GOLD Mixed Box Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140010.jpg",early:42.69,oct:44.8,nov:46.4,dec:48.0},
+{range:"14\" Supreme Crackers",eco:"High Shine Foil Board",code:"SUJ140009",desc:"14\" Diamond SILVER Mixed Box Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140009.jpg",early:42.69,oct:44.8,nov:46.4,dec:48.0},
+{range:"14\" Supreme Crackers",eco:"Luxury Sparkling Board",code:"SUJ140001",desc:"14\" Sparkling Dust RED Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140001.jpg",early:44.69,oct:46.9,nov:48.58,dec:50.25},
+{range:"14\" Supreme Crackers",eco:"Luxury Sparkling Board",code:"SUJ140002",desc:"14\" Sparkling Dust GOLD Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140002.jpg",early:44.69,oct:46.9,nov:48.58,dec:50.25},
+{range:"14\" Supreme Crackers",eco:"Luxury Sparkling Board",code:"SUJ140003",desc:"14\" Sparkling Dust SILVER Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140003.jpg",early:44.69,oct:46.9,nov:48.58,dec:50.25},
+{range:"14\" Supreme Crackers",eco:"Luxury Sparkling Board",code:"SUJ140004",desc:"14\" Sparkling Dust GUN METAL GREY Cracker with Useful Grade 3",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140004.jpg",early:44.69,oct:46.9,nov:48.58,dec:50.25},
+{range:"14\" Handmade Crackers",eco:"Hand Made",code:"SUJ140011",desc:"14\" Opulent Dots Gold Hand Made Cracker with Useful Grade 4",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140011.jpg",early:70.7,oct:74.2,nov:76.85,dec:79.5},
+{range:"14\" Handmade Crackers",isNew:true,eco:"Hand Made",code:"SUJ140017",desc:"14\" Sovereign Gold Hand Made Cracker with Useful Grade 4",caseQty:25,palletQty:63,cat:"Crackers",size:14,img:"images/SUJ140017.jpg",early:73.37,oct:77.0,nov:79.75,dec:82.5},
+{range:"Napkins",isNew:true,code:"4024WHHF",desc:"Sparkle Tree 40x40cm 2ply Napkin packed in 1000's",caseQty:1000,palletQty:30,cat:"Napkins & Tablecovers",img:"images/4024WHHF.jpg",early:36.02,oct:37.8,nov:39.15,dec:40.5},
+{range:"Napkins",isNew:true,code:"4048WHHF",desc:"Sparkle Tree Airlaid 40cm 8fold Napkin packed in 500's",caseQty:500,palletQty:50,cat:"Napkins & Tablecovers",img:"images/4048WHHF.jpg",early:58.7,oct:61.6,nov:63.8,dec:66.0},
+{range:"Napkins",isNew:true,code:"SUDP500004",desc:"Gold Tablecover 120x120cm packed in 50's",caseQty:50,palletQty:35,cat:"Napkins & Tablecovers",img:"images/SUDP500004.jpg",early:46.69,oct:49.0,nov:50.75,dec:52.5},
+{range:"Napkins",isNew:true,code:"SUDP500005",desc:"Silver Tablecover 120x120cm packed in 50's",caseQty:50,palletQty:35,cat:"Napkins & Tablecovers",img:"images/SUDP500005.jpg",early:46.69,oct:49.0,nov:50.75,dec:52.5},
+{range:"Napkins",isNew:true,code:"3334NAHF",desc:"Festive Forest 33x33cm 3ply Napkin packed in 1000's",caseQty:1000,palletQty:66,cat:"Napkins & Tablecovers",img:"images/3334NAHF.jpg",early:46.69,oct:49.0,nov:50.75,dec:52.5},
+{range:"Napkins",isNew:true,code:"4024NAHF",desc:"Festive Forest 40x40cm 2ply Napkin packed in 1000's",caseQty:1000,palletQty:30,cat:"Napkins & Tablecovers",img:"images/4024NAHF.jpg",early:49.36,oct:51.8,nov:53.65,dec:55.5},
+{range:"Napkins",isNew:true,code:"4048NAHF",desc:"Festive Forest Airlaid 40cm 8fold Napkin packed in 500's",caseQty:500,palletQty:50,cat:"Napkins & Tablecovers",img:"images/4048NAHF.jpg",early:73.37,oct:77.0,nov:79.75,dec:82.5},
+{range:"Party Boxes",eco:"Foil Board",code:"SUJGB0001",desc:"SILVER Matt Foil Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0001.jpg",early:17.34,oct:18.2,nov:18.85,dec:19.5},
+{range:"Party Boxes",eco:"Foil Board",code:"SUJGB0002",desc:"GOLD Matt Foil Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0002.jpg",early:17.34,oct:18.2,nov:18.85,dec:19.5},
+{range:"Party Boxes",eco:"Foil Board",code:"SUJGB0003",desc:"BLACK Foil Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0003.jpg",early:18.94,oct:19.88,nov:20.59,dec:21.3},
+{range:"Party Boxes",eco:"Luxury Sparkling Board",code:"SUJGB0004",desc:"Sparkling Dust RED Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0004.jpg",early:20.68,oct:21.7,nov:22.48,dec:23.25},
+{range:"Party Boxes",eco:"Luxury Sparkling Board",code:"SUJGB0005",desc:"Sparkling Dust GOLD Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0005.jpg",early:20.68,oct:21.7,nov:22.48,dec:23.25},
+{range:"Party Boxes",eco:"Luxury Sparkling Board",code:"SUJGB0006",desc:"Sparkling Dust SILVER Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0006.jpg",early:20.68,oct:21.7,nov:22.48,dec:23.25},
+{range:"Party Boxes",eco:"Luxury Sparkling Board",code:"SUJGB0007",desc:"Sparkling Dust GUN METAL GREY Gift Boxes",caseQty:24,casesPerOuter:8,cat:"Gift Boxes",img:"images/SUJGB0007.jpg",early:20.68,oct:21.7,nov:22.48,dec:23.25},
+{range:"Rocket Balloons",code:"SUJRB0001",desc:"Rocket Balloons and plastic tube",caseQty:144,casesPerOuter:50,cat:"Balloons, Streamers & Poppers",img:"images/SUJRB0001.jpg",early:13.74,oct:14.42,nov:14.94,dec:15.45},
+{range:"Blowouts",code:"SUJBL0001",desc:"Blowouts Gold & Silver foil mixed",caseQty:50,casesPerOuter:50,cat:"Balloons, Streamers & Poppers",img:"images/SUJBL0001.jpg",early:5.54,oct:5.81,nov:6.02,dec:6.23},
+{range:"Party Streamers",code:"SUPCJ205",desc:"Multicoloured Throwout Paper Streamers",caseQty:900,casesPerOuter:50,cat:"Balloons, Streamers & Poppers",img:"images/SUPCJ205.jpg",early:3.8,oct:3.99,nov:4.13,dec:4.28},
+{range:"Party Poppers",code:"SUPCJ208",desc:"Multicoloured Non Foil Party Poppers",caseQty:50,casesPerOuter:40,cat:"Balloons, Streamers & Poppers",img:"images/SUPCJ208.jpg",early:2.87,oct:3.01,nov:3.12,dec:3.22},
+{range:"Party Poppers",code:"SUPCJ206",desc:"Gold and Silver Foil Mixed Party Poppers",caseQty:50,casesPerOuter:40,cat:"Balloons, Streamers & Poppers",img:"images/SUPCJ206.jpg",early:3.8,oct:3.99,nov:4.13,dec:4.28},
+{range:"Party Poppers",code:"SUPCJ210",desc:"Gold Foil Party Poppers",caseQty:50,casesPerOuter:40,cat:"Balloons, Streamers & Poppers",img:"images/SUPCJ210.jpg",early:3.8,oct:3.99,nov:4.13,dec:4.28},
+{range:"Party Poppers",code:"SUPCJ211",desc:"Silver Foil Party Poppers",caseQty:50,casesPerOuter:40,cat:"Balloons, Streamers & Poppers",img:"images/SUPCJ211.jpg",early:3.8,oct:3.99,nov:4.13,dec:4.28},
+{range:"Party Items",code:"SUPCJ212",desc:"STARDUST CONFETTI SILVER METALLIC 250g tubs",caseQty:1,casesPerOuter:25,cat:"Hats, Kits & Novelties",img:"images/SUPCJ212.jpg",early:9.87,oct:10.36,nov:10.73,dec:11.1},
+{range:"Party Hats",code:"SUPCK001",desc:"Gold Foil Party Hats JUBILEE",caseQty:72,casesPerOuter:4,cat:"Hats, Kits & Novelties",img:"images/SUPCK001.jpg",early:24.01,oct:25.2,nov:26.1,dec:27.0},
+{range:"Party Hats",code:"SUPCK002",desc:"Silver Foil Party Hats JUBILEE",caseQty:72,casesPerOuter:4,cat:"Hats, Kits & Novelties",img:"images/SUPCK002.jpg",early:24.01,oct:25.2,nov:26.1,dec:27.0},
+{range:"Party Hats",code:"SUPCK002A",desc:"Multi Coloured GALA Party Hats",caseQty:72,casesPerOuter:6,cat:"Hats, Kits & Novelties",img:"images/SUPCK002A.jpg",early:17.34,oct:18.2,nov:18.85,dec:19.5},
+{range:"Party Items",code:"SUPCK003",desc:"Happy New Year Kit — fully printed and themed kit in silver, 125 piece",caseQty:1,casesPerOuter:4,cat:"Hats, Kits & Novelties",img:"images/SUPCK003.jpg",early:56.03,oct:58.8,nov:60.9,dec:63.0},
+{range:"Party Items",isNew:true,code:"SUPCK004",desc:"Happy New Year Kit — fully printed Multicoloured themed kit, 200 piece",caseQty:1,casesPerOuter:4,cat:"Hats, Kits & Novelties",img:"images/SUPCK004.jpg",early:56.03,oct:58.8,nov:60.9,dec:63.0},
+{range:"Tooters",code:"SUPCK006",desc:"Tooters Gold Foil 8\"",caseQty:50,casesPerOuter:12,cat:"Hats, Kits & Novelties",img:"images/SUPCK006.jpg",early:9.87,oct:10.36,nov:10.73,dec:11.1},
+{range:"Tooters",code:"SUPCK006A",desc:"Tooters Silver Foil 8\"",caseQty:50,casesPerOuter:12,cat:"Hats, Kits & Novelties",img:"images/SUPCK006A.jpg",early:9.87,oct:10.36,nov:10.73,dec:11.1},
+{range:"Selfie Kits",code:"SUPCK007",desc:"Selfie Kit NEW YEAR Black & Silver",caseQty:200,cat:"Hats, Kits & Novelties",img:"images/SUPCK007.jpg",early:36.69,oct:38.5,nov:39.88,dec:41.25},
+{range:"Selfie Kits",code:"SUPCK007A",desc:"Selfie Kit FUN PARTY NIGHT Coloured",caseQty:200,cat:"Hats, Kits & Novelties",img:"images/SUPCK007A.jpg",early:36.69,oct:38.5,nov:39.88,dec:41.25},
+{range:"Decorations",code:"SUPCY0300",desc:"2.1m – 7ft Hotel Festive Christmas Tree, Hinged Branches, 1481 tips",caseQty:1,cat:"Decorations",img:"images/SUPCY0300.jpg",early:106.72,oct:112.0,nov:116.0,dec:120.0},
+{range:"Decorations",code:"SUPCY0301",desc:"2.7m – 9ft Hotel Festive Christmas Tree, Hinged Branches, 2541 tips",caseQty:1,cat:"Decorations",img:"images/SUPCY0301.jpg",early:180.09,oct:189.0,nov:195.75,dec:202.5},
+{range:"Decorations",code:"SUPCY0101",desc:"Frosted Pine Cone & Berry Wreath — 60cm",caseQty:1,cat:"Decorations",img:"images/SUPCY0101.jpg",early:24.68,oct:25.9,nov:26.82,dec:27.75},
+{range:"Decorations",code:"SUPCY0201",desc:"Frosted Pine Cone & Berry Garland — 2.7m",caseQty:1,cat:"Decorations",img:"images/SUPCY0201.jpg",early:31.82,oct:33.39,nov:34.58,dec:35.78},
+{range:"Decorations",code:"SUPCY0202",desc:"Silver Bauble Pine Garland — 2.7m",caseQty:1,cat:"Decorations",img:"images/SUPCY0202.jpg",early:32.68,oct:34.3,nov:35.52,dec:36.75},
+{range:"Decorations",code:"SUPCY0102",desc:"Silver Bauble Pine Wreath — 60cm",caseQty:1,cat:"Decorations",img:"images/SUPCY0102.jpg",early:26.41,oct:27.72,nov:28.71,dec:29.7},
+{range:"Decorations",isNew:true,code:"SUPCY0203",desc:"Gold Bauble Pine Garland — 2.7m",caseQty:1,cat:"Decorations",img:"images/SUPCY0203.jpg",early:32.68,oct:34.3,nov:35.52,dec:36.75},
+{range:"Decorations",isNew:true,code:"SUPCY0103",desc:"Gold Bauble Pine Wreath — 60cm",caseQty:1,cat:"Decorations",img:"images/SUPCY0103.jpg",early:26.41,oct:27.72,nov:28.71,dec:29.7},
+];
+
+const CATS = ["All","Crackers","Napkins & Tablecovers","Gift Boxes","Balloons, Streamers & Poppers","Hats, Kits & Novelties","Decorations"];
+const TIER_LABELS = {early:"Early", oct:"Oct", nov:"Nov", dec:"Dec"};
+
+/* ---------------- colour detection for cracker icon ---------------- */
+function keyColor(desc){
+  const d = desc.toUpperCase();
+  if(d.includes("GOLD")) return "#C9962E";
+  if(d.includes("SILVER")||d.includes("SNOWFLAKE")) return "#9AA5AD";
+  if(d.includes("RED")) return "#A13D3D";
+  if(d.includes("GREEN")||d.includes("FOREST")||d.includes("WREATH")||d.includes("PINE")) return "#2F6B4F";
+  if(d.includes("BLUE")) return "#3C6E8F";
+  if(d.includes("BLACK")||d.includes("GUN METAL")) return "#33312D";
+  if(d.includes("PURPLE")) return "#6B4A7A";
+  if(d.includes("KRAFT")) return "#9C7245";
+  if(d.includes("WHITE")) return "#D9D2C2";
+  return "#C9962E";
+}
+
+/* ---------------- icon builders ---------------- */
+function iconSVG(p){
+  if(p.img) return '<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover;">';
+  const c = keyColor(p.desc);
+  switch(p.cat){
+    case "Crackers":
+      return `<svg width="64" height="44" viewBox="0 0 64 44">
+        <path d="M14 22 L4 12 L4 32 Z" fill="${c}" opacity="0.85"/>
+        <path d="M50 22 L60 12 L60 32 Z" fill="${c}" opacity="0.85"/>
+        <rect x="14" y="10" width="36" height="24" rx="4" fill="${c}"/>
+        <rect x="14" y="10" width="36" height="24" rx="4" fill="url(#stripe)" opacity="0.25"/>
+        <line x1="24" y1="10" x2="24" y2="34" stroke="var(--ivory)" stroke-width="1.5" opacity="0.5"/>
+        <line x1="40" y1="10" x2="40" y2="34" stroke="var(--ivory)" stroke-width="1.5" opacity="0.5"/>
+        <defs><pattern id="stripe" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="3" height="6" fill="white"/></pattern></defs>
+      </svg>`;
+    case "Napkins & Tablecovers":
+      return `<svg width="52" height="52" viewBox="0 0 52 52">
+        <rect x="8" y="8" width="36" height="36" rx="3" fill="${p.desc.toUpperCase().includes('GOLD')?'#C9962E':p.desc.toUpperCase().includes('SILVER')?'#9AA5AD':'#2F6B4F'}" opacity="0.9"/>
+        <path d="M8 8 L26 26 L44 8 Z" fill="var(--ivory)" opacity="0.35"/>
+        <path d="M8 44 L26 26 L44 44 Z" fill="black" opacity="0.08"/>
+      </svg>`;
+    case "Gift Boxes":
+      return `<svg width="52" height="52" viewBox="0 0 52 52">
+        <rect x="9" y="20" width="34" height="24" rx="2" fill="${c}"/>
+        <rect x="6" y="12" width="40" height="10" rx="2" fill="${c}" opacity="0.75"/>
+        <rect x="23" y="12" width="6" height="32" fill="var(--ivory)" opacity="0.6"/>
+        <path d="M20 12 C20 4 32 4 32 12" stroke="var(--ivory)" stroke-width="3" fill="none" opacity="0.6"/>
+      </svg>`;
+    case "Balloons, Streamers & Poppers":
+      if(p.range.includes("Balloon")) return `<svg width="44" height="56" viewBox="0 0 44 56"><ellipse cx="22" cy="20" rx="16" ry="19" fill="#A13D3D"/><path d="M22 39 L22 50" stroke="#33312D" stroke-width="1.5"/><path d="M18 12 Q22 6 28 10" stroke="white" opacity="0.4" fill="none" stroke-width="2"/></svg>`;
+      if(p.range.includes("Streamer")) return `<svg width="56" height="40" viewBox="0 0 56 40"><path d="M4 8 Q20 2 28 12 T52 10" stroke="#C9962E" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M4 24 Q20 18 28 28 T52 26" stroke="#A13D3D" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`;
+      return `<svg width="44" height="52" viewBox="0 0 44 52"><path d="M14 46 L8 14 L36 14 L30 46 Z" fill="#C9962E"/><circle cx="22" cy="10" r="6" fill="#A13D3D"/><circle cx="12" cy="14" r="3" fill="#2F6B4F"/><circle cx="32" cy="14" r="3" fill="#3C6E8F"/></svg>`;
+    case "Hats, Kits & Novelties":
+      if(p.range.includes("Hat")) return `<svg width="44" height="48" viewBox="0 0 44 48"><path d="M22 4 L38 42 L6 42 Z" fill="${p.desc.toUpperCase().includes('GOLD')?'#C9962E':p.desc.toUpperCase().includes('SILVER')?'#9AA5AD':'#A13D3D'}"/><circle cx="22" cy="4" r="4" fill="#2F6B4F"/><rect x="4" y="40" width="36" height="5" rx="2" fill="#33312D" opacity="0.7"/></svg>`;
+      if(p.range.includes("Tooter")) return `<svg width="52" height="30" viewBox="0 0 52 30"><path d="M4 15 Q28 4 48 15 Q28 26 4 15 Z" fill="${p.desc.toUpperCase().includes('GOLD')?'#C9962E':'#9AA5AD'}"/><circle cx="4" cy="15" r="4" fill="#A13D3D"/></svg>`;
+      if(p.range.includes("Selfie")) return `<svg width="48" height="40" viewBox="0 0 48 40"><rect x="4" y="10" width="40" height="26" rx="4" fill="#33312D"/><circle cx="24" cy="23" r="9" fill="#9AA5AD"/><rect x="17" y="4" width="10" height="8" rx="2" fill="#33312D"/></svg>`;
+      return `<svg width="48" height="48" viewBox="0 0 48 48"><g fill="#C9962E"><rect x="22" y="2" width="4" height="12"/><rect x="22" y="34" width="4" height="12"/><rect x="2" y="22" width="12" height="4"/><rect x="34" y="22" width="12" height="4"/></g><g fill="#A13D3D" transform="rotate(45 24 24)"><rect x="22" y="4" width="4" height="10"/><rect x="22" y="34" width="4" height="10"/><rect x="4" y="22" width="10" height="4"/><rect x="34" y="22" width="10" height="4"/></g></svg>`;
+    case "Decorations":
+      if(p.desc.toUpperCase().includes("TREE")) return `<svg width="40" height="52" viewBox="0 0 40 52"><path d="M20 2 L32 20 L26 20 L36 34 L28 34 L38 48 L2 48 L12 34 L4 34 L14 20 L8 20 Z" fill="#2F6B4F"/><rect x="17" y="48" width="6" height="4" fill="#9C7245"/></svg>`;
+      return `<svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#2F6B4F" stroke-width="6"/><circle cx="24" cy="6" r="3.5" fill="${p.desc.toUpperCase().includes('GOLD')?'#C9962E':'#9AA5AD'}"/><circle cx="42" cy="24" r="3.5" fill="#A13D3D"/><circle cx="24" cy="42" r="3.5" fill="${p.desc.toUpperCase().includes('GOLD')?'#C9962E':'#9AA5AD'}"/><circle cx="6" cy="24" r="3.5" fill="#A13D3D"/></svg>`;
+    default:
+      return `<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="${c}"/></svg>`;
+  }
+}
+
+/* ---------------- render ---------------- */
+const main = document.getElementById('main');
+const chipsEl = document.getElementById('chips');
+const searchEl = document.getElementById('search');
+const tierSelect = document.getElementById('tierSelect');
+const resultCountEl = document.getElementById('resultCount');
+let activeCat = "All";
+
+CATS.forEach(cat=>{
+  const b = document.createElement('button');
+  b.className = 'chip' + (cat==='All' ? ' active' : '');
+  b.textContent = cat;
+  b.dataset.cat = cat;
+  b.addEventListener('click', ()=>{
+    activeCat = cat;
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    b.classList.add('active');
+    render();
+  });
+  chipsEl.appendChild(b);
+});
+
+function money(n){ return (n===undefined||n===null) ? "—" : "£" + n.toFixed(2); }
+
+function render(){
+  const q = searchEl.value.trim().toLowerCase();
+  const tier = tierSelect.value;
+  const filtered = products.filter(p=>{
+    const matchesCat = activeCat==="All" || p.cat===activeCat;
+    const matchesQ = !q || p.desc.toLowerCase().includes(q) || p.code.toLowerCase().includes(q) || p.range.toLowerCase().includes(q);
+    return matchesCat && matchesQ;
+  });
+
+  resultCountEl.textContent = filtered.length + (filtered.length===1 ? " product" : " products");
+  main.innerHTML = "";
+
+  if(filtered.length===0){
+    main.innerHTML = `<div class="no-results">No products match "${q}". Try a different search or category.</div>`;
+    return;
+  }
+
+  const groupOrder = activeCat === "All" ? CATS.slice(1) : [activeCat];
+  groupOrder.forEach(cat=>{
+    const items = filtered.filter(p=>p.cat===cat);
+    if(items.length===0) return;
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.innerHTML = `${cat} <span>${items.length}</span>`;
+    main.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    items.forEach(p=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.tabIndex = 0;
+      card.innerHTML = `
+        ${p.isNew ? '<span class="badge-new">NEW</span>' : ''}
+        <div class="icon-wrap">${iconSVG(p)}</div>
+        <div class="code">${p.code}</div>
+        <div class="desc">${p.desc}</div>
+        <div class="price-row">
+          <span class="case-price">${money(p[tier])}</span>
+          <span class="unit-price">${TIER_LABELS[tier]} price</span>
+        </div>
+      `;
+      card.addEventListener('click', ()=>openModal(p));
+      card.addEventListener('keydown', e=>{ if(e.key==='Enter') openModal(p); });
+      grid.appendChild(card);
+    });
+    main.appendChild(grid);
+  });
+}
+
+/* ---------------- modal ---------------- */
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modal');
+
+function openModal(p){
+  const tier = tierSelect.value;
+  modal.innerHTML = `
+    <div class="modal-top">
+      <button class="close-btn" id="closeBtn" aria-label="Close">&times;</button>
+      <span class="range-tag">${p.range}${p.isNew ? '<span class="new-flag">NEW FOR 2026</span>' : ''}</span>
+      <h2>${p.desc}</h2>
+      <div class="code-line">Product code: ${p.code}</div>
+      <div class="icon-float">${iconSVG(p)}</div>
+    </div>
+    <div class="modal-body">
+      ${p.eco ? `<div class="eco-line">🌿 ${p.eco}</div>` : ''}
+      <div class="price-tiers">
+        <div class="price-tier ${tier==='early'?'current':''}"><div class="label">Early</div><div class="value">${money(p.early)}</div></div>
+        <div class="price-tier ${tier==='oct'?'current':''}"><div class="label">Oct</div><div class="value">${money(p.oct)}</div></div>
+        <div class="price-tier ${tier==='nov'?'current':''}"><div class="label">Nov</div><div class="value">${money(p.nov)}</div></div>
+        <div class="price-tier ${tier==='dec'?'current':''}"><div class="label">Dec</div><div class="value">${money(p.dec)}</div></div>
+      </div>
+      <div class="spec-grid">
+        <div class="spec"><div class="label">Case Quantity</div><div class="value">${p.caseQty ?? '—'}</div></div>
+        <div class="spec"><div class="label">Cases per Outer</div><div class="value">${p.casesPerOuter ?? 'N/A'}</div></div>
+        <div class="spec"><div class="label">Pallet Quantity</div><div class="value">${p.palletQty ?? 'N/A'}</div></div>
+        <div class="spec"><div class="label">Category</div><div class="value">${p.cat}</div></div>
+      </div>
+      <p class="modal-footer-note">Prices shown are per case, excluding VAT and delivery. Order early to lock in the lowest tier — prices step up through October, November and December. Stock sold on a first come, first served basis.</p>
+    </div>
+  `;
+  overlay.classList.add('open');
+  document.getElementById('closeBtn').addEventListener('click', closeModal);
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+searchEl.addEventListener('input', render);
+tierSelect.addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
