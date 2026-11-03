@@ -317,9 +317,11 @@
     padding:12px; margin-bottom:14px;
   }
   .content-block img{
-    width:64px; height:64px; object-fit:cover; border-radius:8px;
-    flex-shrink:0; border:1px solid var(--line);
+    width:120px; height:120px; object-fit:contain; background:#fff; border-radius:8px;
+    flex-shrink:0; border:1px solid var(--line); cursor:zoom-in;
   }
+  .content-block{cursor:zoom-in;}
+  .content-block .content-zoom{font-size:11px; color:#8a8170; margin-top:4px;}
   .content-block .content-text{
     display:flex; flex-direction:column; gap:2px;
   }
@@ -680,9 +682,10 @@ function render(){
 const overlay = document.getElementById('overlay');
 const modal = document.getElementById('modal');
 
+function zoomImg(src){var lb=document.createElement('div');lb.className='lightbox';lb.innerHTML='<img src="'+src+'">';lb.onclick=function(e){e.stopPropagation();lb.remove();};document.body.appendChild(lb);}
 function openModal(p){
   const tier = tierSelect.value;
-  setTimeout(function(){var h=document.getElementById('heroImg');if(h&&p.img){h.onclick=function(){var lb=document.createElement('div');lb.className='lightbox';lb.innerHTML='<img src="'+p.img+'">';lb.onclick=function(e){e.stopPropagation();lb.remove();};document.body.appendChild(lb);};}},0);
+  setTimeout(function(){var h=document.getElementById('heroImg');if(h&&p.img){h.onclick=function(){zoomImg(p.img);};}var cb=document.querySelector('.content-block');if(cb&&p.contentImg){cb.onclick=function(){zoomImg(p.contentImg);};}},0);
   modal.innerHTML = `
     <div class="modal-top">
       <button class="close-btn" id="closeBtn" aria-label="Close">&times;</button>
@@ -694,7 +697,7 @@ function openModal(p){
     ${p.img ? '<div class="hero-hint">Tap picture to enlarge</div>' : ''}
     <div class="modal-body">
       ${p.eco ? `<div class="eco-line">🌿 ${p.eco}</div>` : ''}
-      ${p.contentImg ? `<div class="content-block"><img src="${p.contentImg}" alt="${p.contentLabel}"><div class="content-text"><span class="content-title">Gift Content</span><span class="content-sub">${p.contentLabel}</span></div></div>` : ''}
+      ${p.contentImg ? `<div class="content-block"><img src="${p.contentImg}" alt="${p.contentLabel}"><div class="content-text"><span class="content-title">Gift Content</span><span class="content-sub">${p.contentLabel}</span><span class="content-zoom">Tap to enlarge</span></div></div>` : ''}
       <div class="price-tiers">
         <div class="price-tier ${tier==='early'?'current':''}"><div class="label">Early</div><div class="value">${money(p.early)}</div></div>
         <div class="price-tier ${tier==='oct'?'current':''}"><div class="label">Oct</div><div class="value">${money(p.oct)}</div></div>
