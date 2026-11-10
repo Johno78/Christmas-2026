@@ -225,6 +225,25 @@
   .card .case-price{font-family:'Fraunces',serif; font-weight:600; font-size:17px; color:var(--pine);}
   .card .unit-price{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink); opacity:.55;}
 
+  /* ---------- stock status ---------- */
+  .badge-stock{
+    position:absolute; top:10px; left:10px; z-index:2;
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px; font-weight:600; letter-spacing:.06em;
+    padding:2px 7px; border-radius:5px;
+  }
+  .badge-stock.out{color:#fff; background:var(--berry);}
+  .badge-stock.low{color:#5b4210; background:rgba(201,150,46,0.28);}
+  .card.oos .icon-wrap, .card.oos .desc, .card.oos .code{opacity:.45; filter:grayscale(.6);}
+  .card.oos .case-price{opacity:.55;}
+  .stock-banner{
+    border-radius:10px; padding:10px 13px; margin-bottom:14px;
+    font-size:13px; font-weight:600;
+  }
+  .stock-banner.out{background:rgba(161,61,61,0.1); color:var(--berry);}
+  .stock-banner.low{background:rgba(201,150,46,0.16); color:#5b4210;}
+  .stock-note{font-size:12px; margin:10px 0 0; opacity:.7;}
+
   .no-results{
     padding:60px 20px; text-align:center; color:var(--ink); opacity:.55;
     font-family:'Inter',sans-serif; font-size:14px;
@@ -363,6 +382,7 @@
         <span><b>Nov</b> — November pricing</span>
         <span><b>Dec</b> — December pricing</span>
       </div>
+      <p class="stock-note" id="stockNote"></p>
     </div>
     <div class="gellings-logo">
       <img src="images/gellings-logo.jpg" alt="Gellings — The Happy Hygiene &amp; Hospitality People">
@@ -544,6 +564,23 @@ const products = [
 const CATS = ["All","Crackers","Napkins & Tablecovers","Gift Boxes","Balloons, Streamers & Poppers","Hats, Kits & Novelties","Decorations"];
 const TIER_LABELS = {early:"Early", oct:"Oct", nov:"Nov", dec:"Dec"};
 
+/* ---------------- stock status ----------------
+   Only lines that are out of stock (0) or low (under 10) are listed.
+   Source: Single Use Paper Co "Hotel Festive - Stock Availability Report", 10 Nov 2026.
+   To update: edit this list (remove a code once it is back in stock). */
+const STOCK_AS_OF = "10 Nov 2026";
+const STOCK = {
+  // out of stock
+  SUDP120001:0, SUDP140001:0, SUJ140001:0, SUJ140002:0, SUJ140005:0, SUJ140010:0,
+  SUJ140014:0, SUJ140016:0, SUJGB0006:0, SUPCJ206:0, SUPCJ210:0,
+  // low stock (under 10)
+  SUDP09001:8, SUPCK006:5, SUDP500004:3, SUPCY0301:2, SUJGB0001:1
+};
+function stockState(p){
+  if(!(p.code in STOCK)) return null;
+  return STOCK[p.code] <= 0 ? "out" : "low";
+}
+
 /* ---------------- colour detection for cracker icon ---------------- */
 function keyColor(desc){
   const d = desc.toUpperCase();
@@ -658,9 +695,11 @@ function render(){
     grid.className = 'grid';
     items.forEach(p=>{
       const card = document.createElement('div');
-      card.className = 'card';
+      const st = stockState(p);
+      card.className = 'card' + (st==='out' ? ' oos' : '');
       card.tabIndex = 0;
       card.innerHTML = `
+        ${st==='out' ? '<span class="badge-stock out">OUT OF STOCK</span>' : st==='low' ? '<span class="badge-stock low">LOW STOCK</span>' : ''}
         ${p.isNew ? '<span class="badge-new">NEW</span>' : ''}
         <div class="icon-wrap">${iconSVG(p)}</div>
         <div class="code">${p.code}</div>
@@ -696,6 +735,7 @@ function openModal(p){
     <div class="hero-img" id="heroImg">${iconSVG(p)}</div>
     ${p.img ? '<div class="hero-hint">Tap picture to enlarge</div>' : ''}
     <div class="modal-body">
+      ${stockState(p)==='out' ? '<div class="stock-banner out">Currently out of stock — please contact us for alternatives.</div>' : stockState(p)==='low' ? '<div class="stock-banner low">Low stock — order soon to avoid disappointment.</div>' : ''}
       ${p.eco ? `<div class="eco-line">🌿 ${p.eco}</div>` : ''}
       ${p.contentImg ? `<div class="content-block"><img src="${p.contentImg}" alt="${p.contentLabel}"><div class="content-text"><span class="content-title">Gift Content</span><span class="content-sub">${p.contentLabel}</span><span class="content-zoom">Tap to enlarge</span></div></div>` : ''}
       <div class="price-tiers">
@@ -724,6 +764,7 @@ function closeModal(){
 overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
+document.getElementById('stockNote').textContent = "Items marked OUT OF STOCK or LOW STOCK — availability checked " + STOCK_AS_OF + ".";
 searchEl.addEventListener('input', render);
 tierSelect.addEventListener('change', render);
 render();
